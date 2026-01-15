@@ -1,103 +1,91 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
-  },
-  "favicon": "/favicon.svg",
+  "name": "ElatoAI",
+"colors": {
+  "primary": "#CF79FF",
+  "light": "#E9C7FF",
+  "dark": "#9B3DDB"
+},
+  "favicon": "/favicon.png",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Docs",
+        "icon": "book-open-cover",
         "groups": [
           {
             "group": "Getting started",
             "pages": [
               "index",
               "quickstart",
-              "development"
+              "MacOS & Linux",
+              "Windows",
+              "PlatformIO IDE",
+              "Arduino IDE"
             ]
           },
           {
-            "group": "Customization",
+            "group": "AI Models",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "models/openai",
+              "models/gemini",
+              "models/grok"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Voice Cloning",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "models/eleven-labs",
+              "models/hume"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Additional Docs",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "blog/Deploying Globally",
+              "blog/Multiple Devices",
+              "blog/Use cases",
+              "blog/Elato on Arduino IDE",
+              "blog/Tap to Chat",
+              "blog/Pitch Shift AI Voices"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Hardware",
+        "icon": "microchip",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Hardware",
             "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "hardware/elato-device",
+              "hardware/elato-ai-devkit",
+              "hardware/diy-hardware"
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
+    "href": "https://www.elatoai.com",
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
   },
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "GitHub",
+        "href": "https://github.com/akdeb/ElatoAI",
+        "icon": "github"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Home",
+      "href": "https://elatoai.com"
     }
   },
   "contextual": {
@@ -114,9 +102,9 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "discord": "https://discord.gg/KJWxDPBRUj",
+      "github": "https://github.com/akdeb/ElatoAI",
+      "linkedin": "https://linkedin.com/company/elatoai"
     }
   }
 }

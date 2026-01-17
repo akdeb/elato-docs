@@ -31,28 +31,147 @@ description: "Start building awesome voice AI experiences in minutes"
 7. Button / Touchpad
 8. USB cable (power)
 
+### Step 1: Clone the repository
 
-### Step 1: Set up your local environment
+<AccordionGroup>
+  <Accordion title="macOS / Linux">
 
- <Card
-    title="MacOS & Linux"
-    icon="apple"
-    href="/essentials/settings"
-      horizontal
-  >
-  </Card>
+```bash
+git clone git@github.com:akdeb/ElatoAI.git
+cd ElatoAI
+```
+  </Accordion>
 
-   <Card
-    title="Windows setup"
-    icon="microsoft"
-    href="/essentials/settings"
-      horizontal
+  <Accordion title="Windows">
 
-  >
-  </Card>
+If you're on Windows, we recommend using **WSL2**.
 
-### Step 2: Set up your firmware dev environment
+1. Install WSL2 and Ubuntu.
+2. Open **Ubuntu** (WSL).
 
+```bash
+git clone git@github.com:akdeb/ElatoAI.git
+cd ElatoAI
+```
+
+  </Accordion>
+</AccordionGroup>
+
+### Step 2: Start Supabase (Local Backend)
+
+We use Supabase (Postgres + Auth + Storage) to store users, devices, voices, personalities, and conversations.
+
+Before you start:
+
+- **Docker Desktop** must be installed and running.
+
+<AccordionGroup>
+  <Accordion title="macOS">
+
+```bash
+brew install supabase/tap/supabase
+supabase start
+```
+
+  </Accordion>
+
+  <Accordion title="Linux">
+
+Install the Supabase CLI:
+
+```bash
+curl -fsSL https://supabase.com/install.sh | sh
+```
+
+Then start Supabase from the repo root:
+
+```bash
+supabase start
+```
+
+  </Accordion>
+
+  <Accordion title="Windows">
+
+Run everything inside **WSL2**, with Docker Desktop installed on Windows.
+
+```bash
+curl -fsSL https://supabase.com/install.sh | sh
+supabase start
+```
+
+  </Accordion>
+</AccordionGroup>
+
+### Step 3: Set up your NextJS frontend
+
+From the `frontend-nextjs` directory:
+
+```bash
+cd frontend-nextjs
+npm install
+cp .env.example .env.local
+```
+
+Then set the following in `.env.local`:
+
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY=<your-supabase-anon-key>`
+- `OPENAI_API_KEY=<your-openai-api-key>`
+
+Run the dev server:
+
+```bash
+npm run dev
+```
+
+To Login, use these credentials for local development:
+
+- **Email**: `admin@elatoai.com`
+- **Password**: `admin`
+
+### Choose edge server option (FREE USAGE)
+
+<Tip>
+
+**ELATO MODE (hosted):** Got your own ESP32 DIY hardware device? We offer a fully hosted server for free for up to 30 minutes per month. Register your device on the settings page and it will automatically connect to our edge server. Check out our Pricing page for more details.
+
+</Tip>
+
+<Note>
+
+**DEV MODE (local):** Alternatively, you can run your own edge server locally by following the instructions below and in the Deno server README.
+
+</Note>
+
+**Pro Tip:** You can adjust this server setting in `firmware-arduino/Config.h`.
+
+### Step 4 (Optional): Run the Deno edge server locally
+
+From the repo root:
+
+The commands below are the same on macOS, Linux, and Windows (via WSL2).
+
+```bash
+cd server-deno
+cp .env.example .env
+```
+
+Set your keys in `.env`:
+
+- `SUPABASE_KEY=<your-supabase-anon-key>`
+- `OPENAI_API_KEY=<your-openai-api-key>`
+- `GEMINI_API_KEY=<your-gemini-api-key>`
+- `XAI_API_KEY=<your-xai-api-key>`
+- `ELEVENLABS_API_KEY=<your-elevenlabs-api-key>`
+- `HUME_API_KEY=<your-hume-api-key>`
+
+Run the server at port `8000`:
+
+```bash
+deno run -A --env-file=.env main.ts
+```
+
+### Step 5: Set up your firmware dev environment
 
  <Card
     title="PlatformIO (recommended)"
@@ -71,7 +190,7 @@ description: "Start building awesome voice AI experiences in minutes"
   >
   </Card>
 
-### Step 3: Setup complete!
+### Step 6: Setup complete!
 
 <Accordion icon="rocket" title="Talk to your AI">
   1. Yay! You've now setup your NextJS frontend, Deno server and firmware succesfully.

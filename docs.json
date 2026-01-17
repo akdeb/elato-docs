@@ -2,6 +2,10 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "ElatoAI",
+  "banner": {
+  "content": "🚀 Check out our new docs!",
+  "dismissible": true 
+},
 "colors": {
   "primary": "#CF79FF",
   "light": "#E9C7FF",
@@ -19,10 +23,16 @@
             "pages": [
               "index",
               "quickstart",
-              "MacOS & Linux",
-              "Windows",
-              "PlatformIO IDE",
-              "Arduino IDE"
+              "platformio",
+              "arduino"
+            ]
+          },
+                    {
+            "group": "Hardware",
+            "pages": [
+              "hardware/elato-device",
+              "hardware/elato-ai-devkit",
+              "hardware/diy-hardware"
             ]
           },
           {
@@ -43,26 +53,12 @@
           {
             "group": "Additional Docs",
             "pages": [
-              "blog/Deploying Globally",
-              "blog/Multiple Devices",
-              "blog/Use cases",
-              "blog/Elato on Arduino IDE",
-              "blog/Tap to Chat",
-              "blog/Pitch Shift AI Voices"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Hardware",
-        "icon": "microchip",
-        "groups": [
-          {
-            "group": "Hardware",
-            "pages": [
-              "hardware/elato-device",
-              "hardware/elato-ai-devkit",
-              "hardware/diy-hardware"
+              "blog/deploying-globally",
+              "blog/multiple-devices",
+              "blog/use-cases",
+              "blog/tap-to-chat",
+              "blog/pitch-shift-ai-voices",
+              "blog/community-projects"
             ]
           }
         ]

@@ -26,14 +26,6 @@
               "arduino"
             ]
           },
-                    {
-            "group": "Hardware",
-            "pages": [
-              "hardware/elato-device",
-              "hardware/elato-ai-devkit",
-              "hardware/diy-hardware"
-            ]
-          },
           {
             "group": "AI Models",
             "pages": [

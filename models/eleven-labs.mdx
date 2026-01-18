@@ -6,6 +6,14 @@ icon: '/images/eleven-labs.svg'
 
 ElevenLabs lets you build high-quality realtime voice agents and bring your custom voices to Elato. To use ElevenLabs on your ESP32, set your `ELEVENLABS_API_KEY` in the `.env` file in your Deno server.
 
+When bringing a character from Eleven Labs, add a character name and `Agent Id` (with prefix `agent_*`) from Eleven Labs' Agents Platform. Head to `Create` > `+ Eleven Labs Agent`:
+
+<img src="/images/elevenlabscreate.png" alt="Eleven Labs Create" className="w-full rounded-xl" />
+
+<Tip>
+Make sure your TTS output frequency is 24KHz in the `Voice` Tab of your newly created agent's dashboard. This will match with the output frequency your ESP32 expects.
+</Tip>
+
 ## Tutorial & Demo
 
 <iframe

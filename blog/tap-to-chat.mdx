@@ -3,3 +3,76 @@ title: 'Tap to Chat'
 description: 'Learn how to use Tap to Chat with your Elato Device'
 icon: 'fingerprint-pattern'
 ---
+
+The ESP32 has a neat feature that lets it wake from Deep sleep when it detects a tap. This is perfect for our use case because it means we can keep the device in sleep mode most of the time, and only wake it up when someone wants to chat.
+
+## What it does
+
+When `TOUCH_MODE` is enabled:
+
+- A short tap schedules the device to start listening (it sets `scheduleListeningRestart = true`).
+- A long press puts the device into deep sleep (it sets `sleepRequested = true`).
+
+## Enable Tap to Chat
+
+In `Config.h`:
+
+```c
+// If you want to use the touch sensor to wake up the device, uncomment the following line
+// If you want to use the button to wake up the device, comment the following line
+#define TOUCH_MODE
+```
+
+If `TOUCH_MODE` is disabled, Elato uses the button wake-up path (`esp_sleep_enable_ext0_wakeup`) instead.
+
+## Touch behavior (from `touchTask`)
+
+- **Touch pad**: `TOUCH_PAD_NUM2`
+- **Tap debounce**: `TOUCH_DEBOUNCE_DELAY = 500ms`
+- **Long press duration**: `500ms`
+
+The firmware compares the touch reading to:
+
+```c
+#define TOUCH_THRESHOLD 22500
+```
+
+## Sleep + wake behavior
+
+When going to sleep (`enterSleep()`), the firmware:
+
+- Stops I2S input/output
+- Disconnects the WebSocket cleanly
+- Uninstalls I2S drivers
+- Enables touch wakeup using:
+
+```c
+#define SLEEP_THRESHOLD 1000
+touchSleepWakeUpEnable(TOUCH_PAD_NUM2, SLEEP_THRESHOLD);
+```
+
+Then it calls `esp_deep_sleep_start()`.
+
+## Check your Touch threshold with `touch_test.cpp`
+
+```cpp
+#include <Arduino.h>
+
+// Adjust to the pin you are using:
+#define TOUCH_PIN 2
+
+void setup() {
+  Serial.begin(115200);
+  while (!Serial); // wait for Serial to be ready
+
+  Serial.println("ESP32 Touch Threshold Test");
+  Serial.println("Touch or release the pad and watch the values.");
+  Serial.println("Use these values to decide on a threshold.");
+}
+
+void loop() {
+  uint16_t touchValue = touchRead(TOUCH_PIN);
+  Serial.println(touchValue);
+  delay(250); // read ~4 times per second
+}
+````

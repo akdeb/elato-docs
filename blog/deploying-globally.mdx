@@ -3,3 +3,39 @@ title: 'Deploying Globally'
 description: 'Enable your Voice AI experiences globally'
 icon: 'globe'
 ---
+
+If you are ready to launch your next Voice AI venture, this is the guide for you. We're here to support you in that journey. If you get stuck, join our Discord channel where AI enthusiasts from all around the world gather to discuss new ideas and help solve problems together. This is your invite: https://discord.gg/KJWxDPBRUj
+
+## How to Deploy
+
+2. Deploy your Supabase DB. Follow the instructions here: [Supabase Setup and Usage Guide](blog/database)
+
+3. Deploy your NextJS project with your preferred cloud provider.
+
+4. Deploy your Deno edge server. Follow the instructions here: [Deno Server Setup and Usage Guide](blog/edge-server)
+
+5. Setup your ESP32 Arduino device. Follow the instructions here: [ESP32 Arduino Device Setup and Usage Guide](blog/firmware)
+
+6. Putting it all together. Now you should have all the individual parts working together. 
+
+7. For a single device, you can do not need to configure any device code settings on Supabase. For multiple devices, refer to the [Multiple Devices](blog/multiple-devices) guide.
+
+
+## Advanced Config
+
+1. Add your Deno and Vercel server Root CA to `Config.cpp`. You can find the Root CA of vercel by running the following command and picking the Root certificate in the chain:
+
+```bash
+# vercel server root ca
+openssl s_client -showcerts -connect <your-vercel-deomain>.vercel.app:443 </dev/null
+
+# deno server root ca
+openssl s_client -showcerts -connect <your-deno-domain>.deno.dev:443 </dev/null
+```
+
+2. Edit `Config.cpp` to customize:
+   - Server addresses and ports
+   - Audio sample rate (default 24kHz)
+   - Pin assignments for different boards
+
+3. To deploy to production, comment out `#define DEV_MODE` and set the proper server addresses and ports.

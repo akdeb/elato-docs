@@ -4,84 +4,66 @@ description: 'Your guide to using Arduino IDE for your Voice AI Projects'
 icon: '/images/arduino.png'
 ---
 
-The navigation menu is the list of links on every website.
+<Card title="Before you start" icon="lightbulb" href="/blog/firmware">
+  Make sure you follow the [Firmware guide](/blog/firmware) first.
+</Card>
 
-You will likely update `docs.json` every time you add a new page. Pages do not show up automatically.
+## 1. Install Arduino IDE + ESP32 core
 
-## Navigation syntax
+1. Download Arduino IDE: [https://www.arduino.cc/en/software/](https://www.arduino.cc/en/software/)
+2. Install the ESP32 boards package (Espressif)
+   - Arduino IDE: `Preferences` -> `Additional boards manager URLs`
+   - Add: `https://espressif.github.io/arduino-esp32/package_esp32_index.json`
+   - `Tools` -> `Board` -> `Boards Manager` -> install **esp32 by Espressif Systems**
 
-Our navigation syntax is recursive which means you can make nested navigation groups. You don't need to include `.mdx` in page names.
+## 2. Open the firmware as an Arduino sketch
 
-<CodeGroup>
+Arduino IDE expects an `.ino` entrypoint.
 
-```json Regular Navigation
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Getting Started",
-          "pages": ["quickstart"]
-        }
-      ]
-    }
-  ]
-}
-```
+1. Create a new sketch folder (example: `elato_firmware/`)
+2. Copy firmware sources into that folder (from `firmware-arduino/`)
+3. Rename `main.cpp` to `elato_firmware.ino` (or create `elato_firmware.ino` and include/forward the setup/loop entrypoints)
+4. Keep the other `*.cpp` and `*.h` files in the same sketch directory
 
-```json Nested Navigation
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Getting Started",
-          "pages": [
-            "quickstart",
-            {
-              "group": "Nested Reference Pages",
-              "pages": ["nested-reference-page"]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
+## 3. Board + serial settings (match PlatformIO)
 
-</CodeGroup>
+In Arduino IDE:
 
-## Folders
+- In the Sidebar, head over to `Boards Manager` and select `Arduino ESP32 Boards by Ardiuno` version `2.0.18-arduino.5`
+- `Tools` -> `Board` -> **ESP32S3 Dev Module** (or the closest match to `esp32-s3-devkitc-1`)
+- `Tools` -> `Upload Speed` -> keep at 115200
+- `Tools` -> `Port` -> select your ESP32
+- `Tools` -> `PSRAM` -> enable if your board has it
+- `Tools` -> `Partition Scheme` -> select a scheme that supports **16MB** flash (suggested: "Default 4MB with spiffs")
+- `Tools` -> `Serial Monitor` speed: **115200**
 
-Simply put your MDX files in folders and update the paths in `docs.json`.
+## 4. Libraries (match `lib_deps` from `platformio.ini`)
 
-For example, to have a page at `https://yoursite.com/your-folder/your-page` you would make a folder called `your-folder` containing an MDX file called `your-page.mdx`.
+### Install from Library Manager
 
-<Warning>
+Install these packages and versions:
 
-You cannot use `api` for the name of a folder unless you nest it inside another folder. Mintlify uses Next.js which reserves the top-level `api` folder for internal server calls. A folder name such as `api-reference` would be accepted.
+- `ArduinoJson` (`^7.1.0`)
+- `WebSockets` (`^2.4.1`)
+- `ESPAsyncWebServer` (`^3.7.6`)
+- `ESP32_Button` (`^0.0.1`)
 
-</Warning>
+### Install from GitHub (ZIP)
 
-```json Navigation With Folder
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Group Name",
-          "pages": ["your-folder/your-page"]
-        }
-      ]
-    }
-  ]
-}
-```
+These are pulled from GitHub in PlatformIO; in Arduino IDE you can install them via:
 
-## Hidden pages
+`Sketch` -> `Include Library` -> `Add .ZIP Library...`
 
-MDX files not included in `docs.json` will not show up in the sidebar but are accessible through the search bar and by linking directly to them.
+- `arduino-audio-tools` (tag `v1.0.1`): `https://github.com/pschatzmann/arduino-audio-tools`
+- `arduino-libopus` (commit/tag `a1.1.0`): `https://github.com/pschatzmann/arduino-libopus`
+
+## 5. Build + upload
+
+1. `Sketch` -> `Verify/Compile`
+2. `Sketch` -> `Upload`
+
+If you get missing header/library errors, double-check the GitHub ZIP installs and restart Arduino IDE.
+
+<Note>
+  **Need help?** Join our [Discord](https://discord.gg/KJWxDPBRUj) community and to any questions and share ideas.
+</Note>

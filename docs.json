@@ -50,9 +50,11 @@
             ]
           },
           {
-            "group": "Additional Docs",
+            "group": "Tutorials",
             "pages": [
               "blog/firmware",
+              "blog/database",
+              "blog/edge-server",
               "blog/deploying-globally",
               "blog/multiple-devices",
               "blog/use-cases",

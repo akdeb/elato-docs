@@ -8,7 +8,7 @@ icon: '/images/pio.png'
   Make sure you follow the [Firmware guide](/blog/firmware) first.
 </Card>
 
-## How to setup
+## 1. How to setup
 
 1. Install Visual Studio Code and the PlatformIO extension
 2. Clone this repository
@@ -18,24 +18,6 @@ icon: '/images/pio.png'
    - If using production: Ensure you have proper certificates set
 5. **Build** + **Upload** to your ESP32
 
-
-## Deploying and Advanced Config
-
-1. Add your Deno and Vercel server Root CA to `Config.cpp`. You can find the Root CA of vercel by running the following command and picking the Root certificate in the chain:
-
-```bash
-# vercel server root ca
-openssl s_client -showcerts -connect <your-vercel-deomain>.vercel.app:443 </dev/null
-
-# deno server root ca
-openssl s_client -showcerts -connect <your-deno-domain>.deno.dev:443 </dev/null
-```
-
-2. Edit `Config.cpp` to customize:
-   - Server addresses and ports
-   - Audio sample rate (default 24kHz)
-   - Pin assignments for different boards
-
-3. For development, uncomment `#define DEV_MODE` in `Config.h` to use local servers without SSL. To deploy to production, comment out `#define DEV_MODE` and set the proper server addresses and ports.
-
-4. To use the button functions, uncomment `#define TOUCH_MODE` in `Config.h`
+<Note>
+  **Need help?** Join our [Discord](https://discord.gg/KJWxDPBRUj) community and to any questions and share ideas.
+</Note>

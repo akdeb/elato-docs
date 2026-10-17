@@ -2,14 +2,14 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "ElatoAI",
-"icons": {
-  "library": "lucide"
-},
-"colors": {
-  "primary": "#CF79FF",
-  "light": "#E9C7FF",
-  "dark": "#9B3DDB"
-},
+  "icons": {
+    "library": "lucide"
+  },
+  "colors": {
+    "primary": "#CF79FF",
+    "light": "#E9C7FF",
+    "dark": "#9B3DDB"
+  },
   "favicon": "/favicon.png",
   "navigation": {
     "tabs": [
@@ -27,21 +27,6 @@
             ]
           },
           {
-            "group": "AI Models",
-            "pages": [
-              "models/openai",
-              "models/gemini",
-              "models/grok"
-            ]
-          },
-          {
-            "group": "Voice Cloning",
-            "pages": [
-              "models/eleven-labs",
-              "models/hume"
-            ]
-          },
-          {
             "group": "Tutorials",
             "pages": [
               "blog/firmware",
@@ -56,6 +41,43 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Cloud AI",
+        "icon": "cloud",
+        "groups": [
+          {
+            "group": "AI Models",
+            "pages": [
+              "models/openai",
+              "models/gemini",
+              "models/grok"
+            ]
+          },
+          {
+            "group": "Voice Cloning",
+            "pages": [
+              "models/eleven-labs",
+              "models/hume"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Local AI",
+        "icon": "cpu",
+        "groups": [
+          {
+            "group": "Local AI",
+            "pages": [
+              "local/overview",
+              "local/stt",
+              "local/llm",
+              "local/tts",
+              "local/realtime"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -67,32 +89,45 @@
   "navbar": {
     "links": [
       {
-        "label": "GitHub",
-        "href": "https://github.com/akdeb/ElatoAI",
+        "label": "OpenToys",
+        "href": "https://github.com/akdeb/OpenToys",
         "icon": "github"
+      },
+      {
+        "label": "Home",
+        "href": "https://elatoai.com/home"
       }
     ],
     "primary": {
-      "type": "button",
-      "label": "Home",
-      "href": "https://elatoai.com/home"
+      "type": "github",
+      "href": "https://github.com/akdeb/ElatoAI"
     }
   },
   "contextual": {
     "options": [
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
       "discord": "https://discord.gg/KJWxDPBRUj",
       "github": "https://github.com/akdeb/ElatoAI",
       "linkedin": "https://linkedin.com/company/elatoai"
+    }
+  },
+  "description": "Open-source docs for building voice AI toys, robots and devices on ESP32. Run cloud models (OpenAI Realtime, Gemini, Grok, Eleven Labs, Hume) or fully local STT, LLM and TTS on your Mac.",
+  "seo": {
+    "indexing": "all",
+    "metatags": {
+      "og:site_name": "ElatoAI Docs",
+      "og:type": "website",
+      "twitter:card": "summary_large_image",
+      "keywords": "ESP32 voice AI, AI toys, OpenAI Realtime ESP32, Gemini ESP32, local LLM ESP32, Whisper, Qwen3-TTS, ElatoAI, OpenToys"
     }
   }
 }

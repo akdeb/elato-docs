@@ -1,0 +1,26 @@
+---
+title: "LLM"
+icon: "brain"
+description: "Run local LLMs for ESP32 AI toys with MLX: Ministral, Gemma, Qwen, Llama, Mistral and any model from mlx-community."
+keywords: ["local LLM", "MLX", "mlx-community", "Ministral", "Gemma", "Qwen", "Llama", "ESP32 chatbot"]
+---
+
+The brain of your toy is any LLM from the [`mlx-community`](https://huggingface.co/mlx-community) organization on Hugging Face. OpenToys loads it with `mlx-lm`, and falls back to `mlx-vlm` for models that need it.
+
+| | |
+|---|---|
+| **Default model** | `mlx-community/Ministral-3-3B-Instruct-2512-4bit` |
+| **Also works with** | Gemma, Qwen3, Llama, Mistral3 and other `mlx-community` models |
+| **Context window** | 4096 tokens |
+
+## Switching models
+
+Open the **Models** page in OpenToys, pick an `mlx-community` repo and the app hot-swaps it without restarting your session.
+
+<Tip>
+  Smaller 4-bit models respond faster, which matters for a toy. Start with a 3B model and size up if your Mac has memory to spare.
+</Tip>
+
+## Personalities
+
+Each character is a system prompt plus a voice. The prompt is what makes a toy a storyteller, a game host or a tutor. Default characters live in [`personalities.json`](https://github.com/akdeb/OpenToys/tree/main/app/src/assets).

@@ -1,0 +1,35 @@
+---
+title: "Realtime Pipeline"
+sidebarTitle: "Realtime"
+icon: "bolt"
+description: "How OpenToys streams audio between an ESP32-S3 and a local STT, LLM and TTS pipeline over a websocket."
+keywords: ["realtime voice AI", "ESP32 websocket", "local voice agent", "low latency voice", "OpenToys pipeline"]
+---
+
+Cloud providers like OpenAI Realtime and Gemini Live ship one speech-to-speech model. OpenToys gets the same experience locally by chaining three models on your Mac.
+
+```
+ESP32-S3 mic ──ws──▶ VAD ─▶ Whisper (STT) ─▶ LLM (MLX) ─▶ TTS ──ws──▶ ESP32-S3 speaker
+```
+
+## Connection flow
+
+<Steps>
+  <Step title="Toy boots">
+    The ESP32 starts an open access point called `ELATO` at `192.168.4.1`. The LED glows pink while it waits.
+  </Step>
+  <Step title="Mac joins and handshake">
+    The toy probes ports `49320` and `8000` on your Mac until the OpenToys server answers, then opens a websocket. The LED turns white.
+  </Step>
+  <Step title="Conversation">
+    Mic audio streams up, synthesized speech streams back. Press **End** in the app to close the session and view the transcript.
+  </Step>
+</Steps>
+
+## Troubleshooting
+
+- **`ELATO` isn't listed:** the toy isn't powered or the firmware didn't flash. Reflash and watch for the pink LED.
+- **Joined but nothing happens:** make sure OpenToys is running on the Mac.
+- **Play is greyed out:** wait for the status row to read `Ready on device`.
+
+Want a true speech-to-speech model? Use [Cloud AI](/models/openai).

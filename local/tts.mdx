@@ -1,0 +1,26 @@
+---
+title: "Text to Speech"
+sidebarTitle: "TTS"
+icon: "volume-high"
+description: "Local text-to-speech and voice cloning for ESP32 AI toys with Qwen3-TTS and Chatterbox-turbo on Apple Silicon."
+keywords: ["local TTS", "Qwen3-TTS", "Chatterbox", "voice cloning", "ESP32 text to speech", "MLX"]
+---
+
+OpenToys ships two TTS backends. Both support **voice cloning from less than 10 seconds of audio**.
+
+| Backend | Model |
+|---|---|
+| **Qwen3-TTS** (default) | `mlx-community/Qwen3-TTS-12Hz-0.6B-Base-4bit` |
+| **Chatterbox-turbo** | `mlx-community/chatterbox-turbo-fp16` |
+
+## Choosing a backend
+
+Switch between them in the **Models** page. The backend can be swapped live.
+
+## Cloning a voice
+
+Add a voice with a short, clean reference clip and its transcript, then assign it to a character. If a character's voice isn't on disk yet, the Play button shows **Download voice**.
+
+<Info>
+  Want cloud voice cloning instead? See [Eleven Labs](/models/eleven-labs) and [Hume](/models/hume).
+</Info>

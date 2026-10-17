@@ -1,0 +1,53 @@
+---
+title: "Local AI Overview"
+sidebarTitle: "Overview"
+icon: "house"
+description: "Run speech-to-text, LLM and text-to-speech fully on your Mac and talk to them from an ESP32-S3 toy. No cloud, no subscription."
+keywords: ["local AI", "on-device voice AI", "ESP32 local LLM", "MLX", "Whisper ESP32", "Qwen3-TTS", "OpenToys"]
+---
+
+**OpenToys** is the local-first version of Elato. Your Apple Silicon Mac runs every model, and your ESP32-S3 streams audio to it over a websocket. Nothing leaves your home.
+
+<Card title="OpenToys on GitHub" icon="github" href="https://github.com/akdeb/OpenToys" horizontal>
+  Download the app, flash the firmware and start building.
+</Card>
+
+## The local stack
+
+| Stage | Model | Page |
+|---|---|---|
+| **STT** (speech to text) | Whisper large-v3-turbo | [STT](/local/stt) |
+| **LLM** (the brain) | Any `mlx-community` model, default Ministral-3-3B | [LLM](/local/llm) |
+| **TTS** (text to speech) | Qwen3-TTS and Chatterbox-turbo | [TTS](/local/tts) |
+| **Pipeline** | STT → LLM → TTS over a websocket | [Realtime](/local/realtime) |
+
+All models run through [MLX](https://github.com/ml-explore/mlx), Apple's machine learning framework, so you need an Apple Silicon Mac (M1 or newer).
+
+## Cloud or local?
+
+| | Cloud AI | Local AI |
+|---|---|---|
+| Cost | Pay per API usage | Free |
+| Privacy | Audio goes to the provider | Stays on your Mac |
+| Latency | Native realtime models | Cascaded STT → LLM → TTS |
+| Hardware | ESP32 + internet | ESP32 + Apple Silicon Mac |
+
+Looking for OpenAI, Gemini, Grok, Eleven Labs or Hume? See [Cloud AI](/models/openai).
+
+## Get started
+
+<Steps>
+  <Step title="Install OpenToys">
+    Download the latest DMG from [GitHub Releases](https://github.com/akdeb/OpenToys/releases).
+  </Step>
+  <Step title="Flash your ESP32-S3">
+    In OpenToys, open **Settings** and pick **Connect your ESP32 Here**, then click **Flash**. Wiring is covered in the [firmware guide](/blog/firmware).
+  </Step>
+  <Step title="Join the toy's WiFi and press Play">
+    The toy hosts an open network called `ELATO`. Join it from your Mac and press **Play**.
+  </Step>
+</Steps>
+
+<Tip>
+  While your Mac is on `ELATO` it has no internet. Download models and voices before joining.
+</Tip>

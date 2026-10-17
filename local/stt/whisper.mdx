@@ -1,7 +1,6 @@
 ---
-title: "Speech to Text"
-sidebarTitle: "STT"
-icon: "ear-listen"
+title: "Whisper"
+icon: "mic"
 description: "Local speech-to-text on ESP32 voice AI toys with Whisper large-v3-turbo, running on Apple Silicon through MLX."
 keywords: ["Whisper", "local STT", "speech to text", "ESP32 speech recognition", "MLX Audio"]
 ---
@@ -18,7 +17,7 @@ OpenToys transcribes your toy's microphone audio with **Whisper large-v3-turbo**
 
 1. The ESP32-S3 captures audio from an I2S microphone (INMP441) and streams it to your Mac over a websocket.
 2. Voice activity detection finds the end of your sentence.
-3. Whisper transcribes the utterance and hands the text to the [LLM](/local/llm).
+3. Whisper transcribes the utterance and hands the text to the [LLM](/local/llm/overview).
 
 <Note>
   The model downloads on first setup into the app data directory. After that it works offline.

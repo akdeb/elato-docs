@@ -16,10 +16,10 @@ keywords: ["local AI", "on-device voice AI", "ESP32 local LLM", "MLX", "Whisper 
 
 | Stage | Model | Page |
 |---|---|---|
-| **STT** (speech to text) | Whisper large-v3-turbo | [STT](/local/stt) |
-| **LLM** (the brain) | Any `mlx-community` model, default Ministral-3-3B | [LLM](/local/llm) |
-| **TTS** (text to speech) | Qwen3-TTS and Chatterbox-turbo | [TTS](/local/tts) |
-| **Pipeline** | STT → LLM → TTS over a websocket | [Realtime](/local/realtime) |
+| **STT** (speech to text) | Whisper large-v3-turbo | [STT](/local/stt/whisper) |
+| **LLM** (the brain) | Any `mlx-community` model, default Ministral-3-3B | [LLM](/local/llm/overview) |
+| **TTS** (text to speech) | Qwen3-TTS and Chatterbox-turbo | [TTS](/local/tts/overview) |
+| **Pipeline** | STT → LLM → TTS over a websocket | [Realtime](/local/realtime/pipeline) |
 
 All models run through [MLX](https://github.com/ml-explore/mlx), Apple's machine learning framework, so you need an Apple Silicon Mac (M1 or newer).
 

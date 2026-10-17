@@ -70,11 +70,37 @@
           {
             "group": "Local AI",
             "pages": [
-              "local/overview",
-              "local/stt",
-              "local/llm",
-              "local/tts",
-              "local/realtime"
+              "local/overview"
+            ]
+          },
+          {
+            "group": "STT",
+            "pages": [
+              "local/stt/whisper"
+            ]
+          },
+          {
+            "group": "LLM",
+            "pages": [
+              "local/llm/overview",
+              "local/llm/ministral",
+              "local/llm/gemma",
+              "local/llm/qwen3",
+              "local/llm/llama"
+            ]
+          },
+          {
+            "group": "TTS",
+            "pages": [
+              "local/tts/overview",
+              "local/tts/qwen3-tts",
+              "local/tts/chatterbox"
+            ]
+          },
+          {
+            "group": "Realtime",
+            "pages": [
+              "local/realtime/pipeline"
             ]
           }
         ]
@@ -89,18 +115,20 @@
   "navbar": {
     "links": [
       {
-        "label": "OpenToys",
-        "href": "https://github.com/akdeb/OpenToys",
+        "label": "ElatoAI",
+        "href": "https://github.com/akdeb/ElatoAI",
         "icon": "github"
       },
       {
-        "label": "Home",
-        "href": "https://elatoai.com/home"
+        "label": "OpenToys",
+        "href": "https://github.com/akdeb/OpenToys",
+        "icon": "github"
       }
     ],
     "primary": {
-      "type": "github",
-      "href": "https://github.com/akdeb/ElatoAI"
+      "type": "button",
+      "label": "Home",
+      "href": "https://elatoai.com/home"
     }
   },
   "contextual": {

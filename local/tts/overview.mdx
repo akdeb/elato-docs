@@ -1,7 +1,7 @@
 ---
-title: "Text to Speech"
-sidebarTitle: "TTS"
-icon: "volume-high"
+title: "Choosing a TTS voice"
+sidebarTitle: "Overview"
+icon: "volume-2"
 description: "Local text-to-speech and voice cloning for ESP32 AI toys with Qwen3-TTS and Chatterbox-turbo on Apple Silicon."
 keywords: ["local TTS", "Qwen3-TTS", "Chatterbox", "voice cloning", "ESP32 text to speech", "MLX"]
 ---
@@ -12,6 +12,13 @@ OpenToys ships two TTS backends. Both support **voice cloning from less than 10 
 |---|---|
 | **Qwen3-TTS** (default) | `mlx-community/Qwen3-TTS-12Hz-0.6B-Base-4bit` |
 | **Chatterbox-turbo** | `mlx-community/chatterbox-turbo-fp16` |
+
+## Models
+
+<CardGroup cols={2}>
+  <Card title="Qwen3-TTS" icon="audio-lines" href="/local/tts/qwen3-tts">Default backend.</Card>
+  <Card title="Chatterbox-turbo" icon="message-circle" href="/local/tts/chatterbox">Alternative backend.</Card>
+</CardGroup>
 
 ## Choosing a backend
 

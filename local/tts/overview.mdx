@@ -2,29 +2,32 @@
 title: "Choosing a TTS voice"
 sidebarTitle: "Overview"
 icon: "volume-2"
-description: "Local text-to-speech and voice cloning for ESP32 AI toys with Qwen3-TTS and Chatterbox-turbo on Apple Silicon."
-keywords: ["local TTS", "Qwen3-TTS", "Chatterbox", "voice cloning", "ESP32 text to speech", "MLX"]
+description: "Local text-to-speech and voice cloning for ESP32 AI toys with Qwen3-TTS, Chatterbox, Breeze, OmniVoice, Voxtral, Higgs, Fish Audio, rumik and Irodori on Apple Silicon."
+keywords: ["local TTS", "Qwen3-TTS", "Chatterbox", "OmniVoice", "Voxtral", "Fish Audio", "voice cloning", "ESP32 text to speech", "MLX"]
 ---
 
-OpenToys ships two TTS backends. Both support **voice cloning from less than 10 seconds of audio**.
+OpenToys ships ten TTS backends. Pick one on the **Models** page and swap it live. Qwen3-TTS is the default and the best fit for most Apple Silicon Macs.
 
-| Backend | Model |
-|---|---|
-| **Qwen3-TTS** (default) | `mlx-community/Qwen3-TTS-12Hz-0.6B-Base-4bit` |
-| **Chatterbox-turbo** | `mlx-community/chatterbox-turbo-fp16` |
-
-## Models
-
-<CardGroup cols={2}>
-  <Card title="Qwen3-TTS" icon="audio-lines" href="/local/tts/qwen3-tts">Default backend.</Card>
-  <Card title="Chatterbox-turbo" icon="message-circle" href="/local/tts/chatterbox">Alternative backend.</Card>
-</CardGroup>
+| Backend | Best for | RAM | Page |
+|---|---|---|---|
+| **Qwen3-TTS** (default) | Balanced, most Macs | 4 GB | [Qwen3-TTS](/local/tts/qwen3-tts) |
+| **Chatterbox-turbo** | Expressive, cloning | 6 GB | [Chatterbox-turbo](/local/tts/chatterbox) |
+| **BreezeBlue TTS 2** | Expressive voice design | 8 GB | [BreezeBlue](/local/tts/breeze-blue) |
+| **Chatterbox Multilingual v3** | 23 languages | 6 GB | [Multilingual](/local/tts/chatterbox-multilingual) |
+| **OmniVoice** | 646+ languages, small and fast | 4 GB | [OmniVoice](/local/tts/omnivoice) |
+| **Voxtral TTS** | Natural, 20 built-in voices | 5 GB | [Voxtral](/local/tts/voxtral) |
+| **Higgs Audio v3** | Conversational, 100 languages | 12 GB | [Higgs Audio](/local/tts/higgs-audio) |
+| **Fish Audio Drama 3** | Studio quality, multi-speaker | 26 GB | [Fish Audio](/local/tts/fish-audio) |
+| **rumik-oss 1** | Indic languages | 3 GB | [rumik-oss](/local/tts/rumik) |
+| **Irodori-TTS** | Japanese | 3 GB | [Irodori](/local/tts/irodori) |
 
 ## Choosing a backend
 
-Switch between them in the **Models** page. The backend can be swapped live.
+Check the licenses before shipping a product. Voxtral, Higgs Audio and rumik-oss are non-commercial or research-only.
 
 ## Cloning a voice
+
+Most backends clone a voice from less than 10 seconds of audio. Voxtral and rumik-oss use built-in voices instead.
 
 Add a voice with a short, clean reference clip and its transcript, then assign it to a character. If a character's voice isn't on disk yet, the Play button shows **Download voice**.
 

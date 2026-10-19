@@ -86,7 +86,9 @@
               "local/llm/ministral",
               "local/llm/gemma",
               "local/llm/qwen3",
-              "local/llm/llama"
+              "local/llm/llama",
+              "local/llm/gpt-oss",
+              "local/llm/muse-glimmer"
             ]
           },
           {
@@ -94,7 +96,15 @@
             "pages": [
               "local/tts/overview",
               "local/tts/qwen3-tts",
-              "local/tts/chatterbox"
+              "local/tts/chatterbox",
+              "local/tts/breeze-blue",
+              "local/tts/chatterbox-multilingual",
+              "local/tts/omnivoice",
+              "local/tts/voxtral",
+              "local/tts/higgs-audio",
+              "local/tts/fish-audio",
+              "local/tts/rumik",
+              "local/tts/irodori"
             ]
           },
           {
